@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <title>Mon Compte - GYM CENTER</title>
+
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="compte.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <img src="imagee/logo.jpg" class="logo" />
+        <nav class="navbar">
+            <a href="proj.html">Accueil</a>
+            <a href="deepseek_html_20251115_31774d.html">Activités</a>
+            <a href="planning.html">Planning</a>
+            <a href="compte.html" class="active">Mon Compte</a>
+            <a href="#" id="btnDeconnexion">Déconnexion</a>
+        </nav>
+    </header>
+
+    <!-- CONTENU PRINCIPAL DU COMPTE -->
+    <div class="compte-container">
+        <!-- BANNIÈRE PERSONNELLE -->
+        <div class="banner-personnelle">
+            <div class="banner-content">
+                <div class="photo-profil">
+                    <img id="userPhoto" src="imagee/user-default.jpg" alt="Photo de profil" class="photo">
+                    <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+                    <button onclick="document.getElementById('photoUpload').click()" class="btn-change-photo">📷</button>
+                </div>
+                <div class="info-principale">
+                    <h1 id="userWelcome">Bonjour, [Prénom] !</h1>
+                    <p id="userStatus">Membre GYM CENTER</p>
+                    <div class="badges">
+                        <span class="badge" id="badgeIMC">IMC: -</span>
+                        <span class="badge" id="badgeObjectif">Objectif: -</span>
+                        <span class="badge" id="badgeMembre">Membre depuis: -</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRID DES INFORMATIONS -->
+        <div class="compte-grid">
+            <!-- COLONNE GAUCHE - INFORMATIONS PERSONNELLES -->
+            <div class="compte-colonne">
+                <!-- CARTE PROFIL COMPLET -->
+                <div class="carte-compte">
+                    <h3>👤 MES INFORMATIONS PERSONNELLES</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Nom complet</label>
+                            <span id="infoNomComplet">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Email</label>
+                            <span id="infoEmail">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Âge</label>
+                            <span id="infoAge">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Sexe</label>
+                            <span id="infoSexe">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Téléphone</label>
+                            <span id="infoTelephone">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Adresse</label>
+                            <span id="infoAdresse">-</span>
+                        </div>
+                    </div>
+                    <button onclick="ouvrirModificationProfil()" class="btn-modifier">✏️ Modifier mes informations</button>
+                </div>
+
+                <!-- CARTE MESURES PHYSIQUES -->
+                <div class="carte-compte">
+                    <h3>📏 MES MESURES</h3>
+                    <div class="mesures-grid">
+                        <div class="mesure-item">
+                            <label>Taille</label>
+                            <span id="mesureTaille">- m</span>
+                        </div>
+                        <div class="mesure-item">
+                            <label>Poids actuel</label>
+                            <span id="mesurePoids">- kg</span>
+                        </div>
+                        <div class="mesure-item">
+                            <label>Poids objectif</label>
+                            <span id="mesureObjectifPoids">- kg</span>
+                        </div>
+                        <div class="mesure-item">
+                            <label>Évolution</label>
+                            <span id="mesureEvolution">- kg</span>
+                        </div>
+                    </div>
+                    <button onclick="ouvrirModificationMesures()" class="btn-modifier">⚖️ Mettre à jour mes mesures</button>
+                </div>
+            </div>
+
+            <!-- COLONNE CENTRALE - SANTÉ ET IMC -->
+            <div class="compte-colonne">
+                <!-- CARTE IMC DÉTAILLÉE -->
+                <div class="carte-compte imc-carte">
+                    <h3>📊 MON IMC ET SANTÉ</h3>
+                    <div class="imc-display">
+                        <div class="imc-valeur">
+                            <span id="valeurIMC">0.00</span>
+                            <span class="imc-label">Indice de Masse Corporelle</span>
+                        </div>
+                        <div class="imc-categorie" id="categorieIMC">
+                            <span id="texteCategorie">-</span>
+                        </div>
+                    </div>
+                    <div class="imc-interpretation">
+                        <h4>Interprétation :</h4>
+                        <p id="interpretationIMC">Votre IMC indique un poids normal pour votre taille.</p>
+                    </div>
+                    <div class="imc-conseils">
+                        <h4>Conseils santé :</h4>
+                        <p id="conseilsIMC">Continuez vos bonnes habitudes alimentaires et votre activité physique régulière.</p>
+                    </div>
+                    <button onclick="recalculerIMC()" class="btn-calculer">🔄 Recalculer mon IMC</button>
+                </div>
+
+                <!-- CARTE HISTORIQUE IMC -->
+                <div class="carte-compte">
+                    <h3>📈 HISTORIQUE IMC</h3>
+                    <div class="historique-imc" id="historiqueIMC">
+                        <!-- L'historique sera généré dynamiquement -->
+                        <p class="aucune-donnee">Aucun historique disponible</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLONNE DROITE - PROGRAMMES -->
+            <div class="compte-colonne">
+                <!-- CARTE PROGRAMME ALIMENTAIRE -->
+                <div class="carte-compte programme-carte">
+                    <h3>🍽️ MON PROGRAMME ALIMENTAIRE</h3>
+                    <div class="programme-header">
+                        <div class="calories-jour">
+                            <span id="caloriesRecommandees">0</span>
+                            <span>kcal/jour</span>
+                        </div>
+                    </div>
+                    <div class="programme-content">
+                        <div class="repas-section">
+                            <h4>🍳 Petit-déjeuner</h4>
+                            <p id="planPetitDejeuner">Chargement...</p>
+                        </div>
+                        <div class="repas-section">
+                            <h4>🍲 Déjeuner</h4>
+                            <p id="planDejeuner">Chargement...</p>
+                        </div>
+                        <div class="repas-section">
+                            <h4>🍽️ Dîner</h4>
+                            <p id="planDiner">Chargement...</p>
+                        </div>
+                        <div class="repas-section">
+                            <h4>🥛 Collations</h4>
+                            <p id="planCollations">Chargement...</p>
+                        </div>
+                    </div>
+                    <button onclick="telechargerProgrammeAlimentaire()" class="btn-telecharger">📄 Télécharger ce programme</button>
+                </div>
+
+                <!-- CARTE PROGRAMME SPORTIF -->
+                <div class="carte-compte programme-carte">
+                    <h3>💪 MON PROGRAMME SPORTIF</h3>
+                    <div class="programme-header">
+                        <div class="duree-entrainement">
+                            <span id="dureeProgramme">0</span>
+                            <span>min/jour</span>
+                        </div>
+                        <div class="frequence-entrainement">
+                            <span id="frequenceProgramme">0</span>
+                            <span>jours/semaine</span>
+                        </div>
+                    </div>
+                    <div class="programme-content">
+                        <div class="entrainement-section">
+                            <h4>🎯 Exercices recommandés</h4>
+                            <p id="exercicesProgramme">Chargement...</p>
+                        </div>
+                        <div class="entrainement-section">
+                            <h4>📅 Fréquence</h4>
+                            <p id="frequenceDetail">Chargement...</p>
+                        </div>
+                        <div class="entrainement-section">
+                            <h4>💡 Conseils d'entraînement</h4>
+                            <p id="conseilsEntrainement">Chargement...</p>
+                        </div>
+                    </div>
+                    <button onclick="telechargerProgrammeSportif()" class="btn-telecharger">📄 Télécharger ce programme</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION ABONNEMENT -->
+        <div class="section-abonnement">
+            <div class="carte-compte abonnement-carte">
+                <h3>💰 MON ABONNEMENT</h3>
+                <div class="abonnement-info">
+                    <div class="abonnement-details">
+                        <div class="detail-item">
+                            <label>Type d'abonnement</label>
+                            <span id="typeAbonnement">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Date de début</label>
+                            <span id="dateDebutAbonnement">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Date de fin</label>
+                            <span id="dateFinAbonnement">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Statut</label>
+                            <span id="statutAbonnement">-</span>
+                        </div>
+                    </div>
+                    <div class="abonnement-actions">
+                        <button onclick="changerAbonnement()" class="btn-abonnement">🔄 Changer d'abonnement</button>
+                        <button onclick="renouvelerAbonnement()" class="btn-abonnement">⏰ Renouveler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL MODIFICATION PROFIL -->
+    <div id="modalProfil" class="modal">
+        <div class="modal-contenu">
+            <span class="fermer" onclick="fermerModificationProfil()">&times;</span>
+            <h3>✏️ Modifier mon profil</h3>
+            <form id="formModificationProfil">
+                <div class="form-groupe">
+                    <label>Téléphone</label>
+                    <input type="tel" id="modifTelephone" placeholder="Votre numéro de téléphone">
+                </div>
+                <div class="form-groupe">
+                    <label>Adresse</label>
+                    <textarea id="modifAdresse" placeholder="Votre adresse complète" rows="3"></textarea>
+                </div>
+                <div class="form-groupe">
+                    <label>Objectif personnel</label>
+                    <select id="modifObjectif">
+                        <option value="forme">Mise en forme générale</option>
+                        <option value="perte">Perte de poids</option>
+                        <option value="musculation">Prise de masse musculaire</option>
+                        <option value="performance">Amélioration des performances</option>
+                        <option value="sante">Amélioration de la santé</option>
+                    </select>
+                </div>
+                <div class="actions-modal">
+                    <button type="submit" class="btn-sauvegarder">💾 Sauvegarder</button>
+                    <button type="button" onclick="fermerModificationProfil()" class="btn-annuler">❌ Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL MODIFICATION MESURES -->
+    <div id="modalMesures" class="modal">
+        <div class="modal-contenu">
+            <span class="fermer" onclick="fermerModificationMesures()">&times;</span>
+            <h3>⚖️ Mettre à jour mes mesures</h3>
+            <form id="formModificationMesures">
+                <div class="form-ligne">
+                    <div class="form-groupe">
+                        <label>Taille (mètres)</label>
+                        <input type="number" id="modifTaille" step="0.01" min="1.00" max="2.50" required>
+                    </div>
+                    <div class="form-groupe">
+                        <label>Poids actuel (kg)</label>
+                        <input type="number" id="modifPoids" step="0.1" min="30" max="300" required>
+                    </div>
+                </div>
+                <div class="form-groupe">
+                    <label>Poids objectif (kg)</label>
+                    <input type="number" id="modifObjectifPoids" step="0.1" min="30" max="300">
+                </div>
+                <div class="actions-modal">
+                    <button type="submit" class="btn-sauvegarder">💾 Mettre à jour et recalculer IMC</button>
+                    <button type="button" onclick="fermerModificationMesures()" class="btn-annuler">❌ Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="database.js"></script>
+    <script src="compte.js"></script>
+</body>
+</html>

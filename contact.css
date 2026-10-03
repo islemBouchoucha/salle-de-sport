@@ -1,0 +1,282 @@
+/* Réinitialisation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-image: url('imagee/back.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo {
+    height: 55px;
+    border-radius: 5px;
+}
+
+/* NAVIGATION */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.navbar a:hover,
+.navbar .active {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+}
+
+/* CONTENU PRINCIPAL */
+.home {
+    text-align: left;
+    padding-top: 180px; /* pour éviter que le header ne couvre le texte */
+    padding-left: 50px;
+    max-width: 600px;
+}
+
+.home h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.home h1 span {
+    color: #ffcc00;
+}
+
+.home p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* BOUTON */
+.btn {
+    padding: 12px 28px;
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #e6b800;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .navbar a {
+        margin-left: 15px;
+    }
+
+    .home {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .home h1 {
+        font-size: 38px;
+    }
+}
+/* ----- WRAPPER CONTACT + HORAIRES (Côte à côte) ----- */
+.contact-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-left: 50px;
+    margin-top: 80px;
+}
+
+/* Responsive téléphone */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        margin-left: 20px;
+    }
+}
+
+/* ----- BLOC CONTACT & BLOC HORAIRES (même style) ----- */
+.contact-section {
+    background: #e6b800;     /* Jaune opaque */
+    padding: 40px;
+    border-radius: 12px;
+    width: fit-content;
+    max-width: 700px;
+    border: 1px solid rgba(255, 204, 0, 0.4);
+    color: black;
+}
+
+/* Titre */
+.contact-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: black;
+    font-weight: 700;
+}
+
+/* ----- Lignes de contact ----- */
+.contact-item {
+    font-size: 20px;
+    margin: 10px 0;
+    line-height: 1.6;
+    color: black;
+}
+
+.contact-item span {
+    font-weight: 700;
+}
+
+/* ----- SOCIAL MEDIA ----- */
+.social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-item:hover {
+    transform: translateX(4px);
+}
+
+/* Icônes */
+.icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #333;
+    transition: 0.3s;
+}
+
+/* Couleurs officielles au survol */
+.facebook svg:hover { fill: #1877F2; }
+.instagram svg:hover { fill: #C13584; }
+.youtube svg:hover { fill: #FF0000; }
+
+/* Curseur */
+.icon { cursor: pointer; }
+
+/* ----- HORAIRES ----- */
+.horaires-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.horaire-item {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    font-size: 20px;
+}
+
+.horaire-item span:first-child {
+    font-weight: 700;
+}
+/* --- FORMULAIRE CONTACT --- */
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #f7f7f7;  /* Fond doux */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-section form input,
+.contact-section form textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-section form input:focus,
+.contact-section form textarea:focus {
+    border-color: #ff5722;  /* Couleur d'accent */
+    box-shadow: 0 0 8px rgba(255,87,34,0.2);
+    outline: none;
+}
+
+.contact-section form textarea {
+    resize: vertical; /* permet de redimensionner verticalement */
+    min-height: 120px;
+}
+
+.contact-section form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff5722;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-section form button:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+}
+
+/* TITRE FORMULAIRE */
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .contact-section form {
+        padding: 20px;
+        gap: 12px;
+    }
+}

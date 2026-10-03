@@ -1,0 +1,312 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-image: url('imagee/back.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo {
+    height: 55px;
+    border-radius: 5px;
+}
+
+/* NAVIGATION */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.navbar a:hover,
+.navbar .active {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+}
+
+/* CONTENU PRINCIPAL */
+.home {
+    text-align: left;
+    padding-top: 180px;
+    padding-left: 50px;
+    max-width: 600px;
+}
+
+.home h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.home h1 span {
+    color: #ffcc00;
+}
+
+/* SECTION TARIFS */
+.pricing-section {
+    padding: 60px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-section h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+    font-weight: 700;
+    text-align: center;
+}
+
+.section-description {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* GRID DES TARIFS */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.pricing-card {
+    background: rgba(255, 204, 0, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.pricing-card.featured {
+    transform: scale(1.05);
+    border: 3px solid #000;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+/* BADGE POPULAIRE */
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    color: #ffcc00;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* EN-TÊTE CARTE */
+.card-header {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-header h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.price {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000;
+}
+
+.price span {
+    font-size: 16px;
+    color: #666;
+}
+
+/* LISTE DES FONCTIONNALITÉS */
+.card-features {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.feature {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.feature:last-child {
+    border-bottom: none;
+}
+
+/* BOUTONS */
+.pricing-btn {
+    width: 100%;
+    padding: 15px;
+    background: #000;
+    color: #ffcc00;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pricing-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+.featured-btn {
+    background: #000;
+    color: #ffcc00;
+}
+
+/* OPTIONS SUPPLÉMENTAIRES */
+.addons-section {
+    margin-bottom: 40px;
+}
+
+.addons-section h3 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #ffcc00;
+    text-align: center;
+    font-weight: 600;
+}
+
+.addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.addon-card {
+    background: rgba(255, 204, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #000;
+}
+
+.addon-card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.addon-card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.addon-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* GARANTIE */
+.guarantee-card {
+    background: rgba(255, 204, 0, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: #000;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.guarantee-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.guarantee-card p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .navbar a {
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    .home {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 150px;
+    }
+
+    .home h1 {
+        font-size: 38px;
+    }
+
+    .pricing-section {
+        padding: 40px 20px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+
+    .pricing-card.featured:hover {
+        transform: translateY(-10px);
+    }
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - GYM CENTER</title>
+    <link rel="stylesheet" href="inscrit.css">
+</head>
+<body>
+    <header class="header">
+        <img src="imagee/logo.jpg" class="logo" />
+        <nav class="navbar">
+            <a href="proj.html">Accueil</a>
+            <a href="deepseek_html_20251115_31774d.html">Activités</a>
+            <a href="planning.html">Planning</a>
+            <a href="inscrit.html" class="active">Se connecter</a>
+        </nav>
+    </header>
+    
+    <form id="loginForm">
+        <h2>CONNEXION MEMBRE</h2>
+        <hr>
+
+        <label>Adresse email</label>
+        <input type="email" placeholder="exemple@domaine.tn" required>
+
+        <label>Mot de passe</label>
+        <input type="password" placeholder="••••••••" required>
+
+        <input type="submit" value="Se connecter">
+        
+        <p>Vous n'avez pas de compte ? 
+            <a href="se connecter.html" style="color: #FFD700;">S'inscrire</a>
+        </p>
+    </form>
+
+    <!-- ACCÈS ADMIN TRÈS DISCRET -->
+    <div style="text-align: center; margin-top: 30px; opacity: 0.3; font-size: 10px;">
+        <a href="admin-login.html" style="color: #666; text-decoration: none;">
+            [ accès personnel ]
+        </a>
+    </div>
+   <script src="database.js"></script>
+<script>
+    // Gestion de la connexion utilisateur
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = this.querySelector('input[type="email"]').value;
+        const password = this.querySelector('input[type="password"]').value;
+        
+        // Vérification que les champs sont remplis
+        if (!email || !password) {
+            alert('❌ Veuillez remplir tous les champs.');
+            return;
+        }
+
+        // Vérification dans la base de données
+        const membre = GYMDB.getMembreParEmail(email);
+        
+        if (membre) {
+            // Vérifier le mot de passe (déchiffrer et comparer)
+            const passwordDecode = atob(membre.password);
+            
+            if (passwordDecode === password) {
+                // Connexion réussie
+                localStorage.setItem('userLoggedIn', 'true');
+                localStorage.setItem('currentUser', JSON.stringify(membre));
+                
+                alert('✅ Connexion réussie ! Redirection vers votre compte...');
+                
+                // REDIRECTION VERS LA PAGE COMPTE
+                window.location.href = 'compte.html';
+            } else {
+                alert('❌ Mot de passe incorrect');
+            }
+        } else {
+            alert('❌ Aucun compte trouvé avec cet email');
+        }
+    });
+
+    // Vérifier si l'utilisateur est déjà connecté
+    document.addEventListener('DOMContentLoaded', function() {
+        if (localStorage.getItem('userLoggedIn')) {
+            const userData = localStorage.getItem('currentUser');
+            if (userData) {
+                const user = JSON.parse(userData);
+                console.log('Utilisateur déjà connecté:', user.email);
+                
+                // Optionnel : Rediriger automatiquement si déjà connecté
+                // window.location.href = 'compte.html';
+            }
+        }
+    });
+</script>
+<php>
+// inscription.php
+require_once 'config.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupération des données
+    $nom = $_POST['nom'] ?? '';
+    $prenom = $_POST['prenom'] ?? '';
+    $age = $_POST['age'] ?? '';
+    $sexe = $_POST['sexe'] ?? '';
+    $taille = $_POST['taille'] ?? '';
+    $poids = $_POST['poids'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    
+    // Validation des données
+    $errors = [];
+    
+    if (empty($nom)) $errors[] = "Le nom est requis";
+    if (empty($prenom)) $errors[] = "Le prénom est requis";
+    if (empty($age) || $age < 15 || $age > 100) $errors[] = "L'âge doit être entre 15 et 100 ans";
+    if (empty($sexe) || !in_array($sexe, ['homme', 'femme'])) $errors[] = "Le sexe est invalide";
+    if (empty($taille) || $taille < 1.00 || $taille > 2.50) $errors[] = "La taille doit être entre 1.00 et 2.50 m";
+    if (empty($poids) || $poids < 30 || $poids > 300) $errors[] = "Le poids doit être entre 30 et 300 kg";
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "L'email est invalide";
+    if (empty($password) || strlen($password) < 6) $errors[] = "Le mot de passe doit contenir au moins 6 caractères";
+    
+    if (empty($errors)) {
+        try {
+            // Vérifier si l'email existe déjà
+            $stmt = $pdo->prepare("SELECT id FROM membres WHERE email = ?");
+            $stmt->execute([$email]);
+            
+            if ($stmt->fetch()) {
+                $errors[] = "Un compte avec cet email existe déjà";
+            } else {
+                // Calcul de l'IMC
+                $imc = $poids / ($taille * $taille);
+                $categorie_imc = determinerCategorieIMC($imc);
+                
+                // Hash du mot de passe
+                $password_hash = password_hash($password, PASSWORD_DEFAULT);
+                
+                // Insertion du membre
+                $stmt = $pdo->prepare("
+                    INSERT INTO membres (nom, prenom, age, sexe, taille, poids, imc, categorie_imc, email, password) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ");
+                
+                $stmt->execute([
+                    $nom, $prenom, $age, $sexe, $taille, $poids, 
+                    round($imc, 2), $categorie_imc, $email, $password_hash
+                ]);
+                
+                $membre_id = $pdo->lastInsertId();
+                
+                // Création de l'abonnement
+                $date_fin = date('Y-m-d H:i:s', strtotime('+30 days'));
+                $stmt = $pdo->prepare("
+                    INSERT INTO abonnements (membre_id, type, prix, duree, date_fin) 
+                    VALUES (?, 'decouverte', 29, 30, ?)
+                ");
+                $stmt->execute([$membre_id, $date_fin]);
+                
+                $abonnement_id = $pdo->lastInsertId();
+                
+                // Enregistrement du paiement
+                $stmt = $pdo->prepare("
+                    INSERT INTO paiements (membre_id, abonnement_id, montant, methode, statut) 
+                    VALUES (?, ?, 29, 'carte', 'completé')
+                ");
+                $stmt->execute([$membre_id, $abonnement_id]);
+                
+                // Sauvegarde de l'IMC dans l'historique
+                $stmt = $pdo->prepare("
+                    INSERT INTO historique_imc (membre_id, imc, poids, taille, categorie) 
+                    VALUES (?, ?, ?, ?, ?)
+                ");
+                $stmt->execute([$membre_id, round($imc, 2), $poids, $taille, $categorie_imc]);
+                
+                // Démarrer la session
+                session_start();
+                $_SESSION['user_id'] = $membre_id;
+                $_SESSION['user_email'] = $email;
+                $_SESSION['user_nom'] = $nom;
+                $_SESSION['user_prenom'] = $prenom;
+                
+                // Redirection vers le compte
+                header('Location: compte.php');
+                exit;
+            }
+            
+        } catch (PDOException $e) {
+            $errors[] = "Erreur lors de l'inscription : " . $e->getMessage();
+        }
+    }
+    
+    // Si erreurs, les afficher
+    if (!empty($errors)) {
+        foreach ($errors as $error) {
+            echo "<div style='color: red; margin: 10px 0;'>$error</div>";
+        }
+    }
+}
+
+function determinerCategorieIMC($imc) {
+    if ($imc < 18.5) return 'Sous-poids';
+    if ($imc >= 18.5 && $imc <= 24.9) return 'Poids normal';
+    if ($imc >= 25 && $imc <= 29.9) return 'Surpoids';
+    return 'Obésité';
+}
+</php>
+</body>
+</html>

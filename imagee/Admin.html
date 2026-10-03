@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <title>Administration - GYM CENTER</title>
+
+    <!-- Lien vers le fichier CSS séparé -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <img src="imagee/logo.jpg" class="logo" />
+        <nav class="navbar">
+            <a href="proj.html">Accueil</a>
+            <a href="deepseek_html_20251115_31774d.html">Activités</a>
+            <a href="planning.html">Planning</a>
+            <a href="admin.html" class="active">Administration</a>
+            <a href="inscrit.html">Se connecter</a>
+        </nav>
+    </header>
+
+    <!-- CONTENU principal -->
+    <section class="home">
+        <h1>Espace <span>Administration</span></h1>
+    </section>
+
+    <!-- SECTION STATISTIQUES -->
+    <div class="admin-section">
+        <h2>STATISTIQUES DES MEMBRES</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <h3>Membres Actifs</h3>
+                    <span class="stat-number">247</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                    <h3>Présence Aujourd'hui</h3>
+                    <span class="stat-number">89</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <h3>Revenu Mensuel</h3>
+                    <span class="stat-number">12,450 €</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- LISTE DES MEMBRES CONNECTÉS -->
+        <div class="members-section">
+            <h3>MEMBRES ACTUELLEMENT PRÉSENTS</h3>
+            <div class="members-list">
+                <div class="member-item">
+                    <span class="member-name">Jean Dupont</span>
+                    <span class="member-time">Entré à 08:30</span>
+                    <span class="member-activity">Musculation</span>
+                </div>
+                <div class="member-item">
+                    <span class="member-name">Marie Lambert</span>
+                    <span class="member-time">Entré à 09:15</span>
+                    <span class="member-activity">Yoga</span>
+                </div>
+                <div class="member-item">
+                    <span class="member-name">Pierre Martin</span>
+                    <span class="member-time">Entré à 10:00</span>
+                    <span class="member-activity">Cardio</span>
+                </div>
+                <div class="member-item">
+                    <span class="member-name">Sophie Bernard</span>
+                    <span class="member-time">Entré à 11:30</span>
+                    <span class="member-activity">Cross Training</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- HISTORIQUE DES PRÉSENCES -->
+        <div class="history-section">
+            <h3>HISTORIQUE DES PRÉSENCES</h3>
+            <div class="history-filters">
+                <button class="filter-btn active">Aujourd'hui</button>
+                <button class="filter-btn">Cette semaine</button>
+                <button class="filter-btn">Ce mois</button>
+            </div>
+            <div class="history-list">
+                <div class="history-item">
+                    <span class="history-date">15/11/2024</span>
+                    <span class="history-count">124 présences</span>
+                    <span class="history-revenue">4,150 €</span>
+                </div>
+                <div class="history-item">
+                    <span class="history-date">14/11/2024</span>
+                    <span class="history-count">118 présences</span>
+                    <span class="history-revenue">3,980 €</span>
+                </div>
+                <div class="history-item">
+                    <span class="history-date">13/11/2024</span>
+                    <span class="history-count">132 présences</span>
+                    <span class="history-revenue">4,320 €</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulation de données en temps réel
+        function updateLiveData() {
+            // Mise à jour aléatoire des statistiques (pour la démo)
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const current = parseInt(stat.textContent.replace(/[^\d]/g, ''));
+                const change = Math.floor(Math.random() * 10) - 2;
+                const newValue = Math.max(0, current + change);
+                stat.textContent = stat.textContent.includes('€') ? 
+                    new Intl.NumberFormat('fr-FR', {style: 'currency', currency: 'EUR'}).format(newValue) : 
+                    newValue.toString();
+            });
+        }
+
+        // Mise à jour toutes les 30 secondes
+        setInterval(updateLiveData, 30000);
+
+        // Filtres d'historique
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

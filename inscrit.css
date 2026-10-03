@@ -1,0 +1,246 @@
+/* ===================== RESET & BASE ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('imagee/back.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+/* ===================== OVERLAY FOND ===================== */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* ===================== HEADER ===================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo {
+    height: 55px;
+    border-radius: 5px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.navbar a:hover,
+.navbar .active {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+}
+
+/* ===================== FORMULAIRE ===================== */
+form {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 230, 0, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(255, 204, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    margin-top: 100px;
+}
+
+/* TITRE */
+form h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #FFD700;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+form hr {
+    border: 0;
+    height: 2px;
+    background-color: #FFD700;
+    margin-bottom: 20px;
+}
+
+/* CHAMPS EMAIL & PASSWORD */
+form label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff9c4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+form input[type="email"],
+form input[type="password"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #FFD700;
+    background-color: rgba(255,255,0,0.1);
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    border-color: #FFC107;
+    box-shadow: 0 0 8px rgba(255,193,7,0.5);
+    outline: none;
+    background: rgba(255,255,255,0.2);
+}
+
+/* BOUTON CONNEXION */
+input[type="submit"] {
+    margin-top: 10px;
+    background: linear-gradient(90deg, #FFD700, #FFC107);
+    color: #000;
+    border: none;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(90deg, #FFC107, #FFB300);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 193, 7, 0.4);
+}
+
+/* PARAGRAPHE LIEN INSCRIPTION */
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #fff9c4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+p a {
+    text-decoration: none;
+    color: #FFD700;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #FFC107;
+    text-decoration: underline;
+}
+
+/* ===================== SECTION ACCÈS ADMIN ===================== */
+.admin-access {
+    text-align: center;
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255, 204, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 204, 0, 0.3);
+}
+
+.admin-access p {
+    color: #fff9c4;
+    font-size: 14px;
+    margin: 0;
+}
+
+.admin-access a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.admin-access a:hover {
+    color: #000;
+    background: #ffcc00;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(255, 204, 0, 0.4);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+        margin-top: 80px;
+    }
+
+    form h2 {
+        font-size: 24px;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+
+    .navbar a {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    .admin-access {
+        margin-top: 20px;
+        padding: 12px;
+    }
+    
+    .admin-access p {
+        font-size: 12px;
+    }
+}
+
+/* Animation pour le bouton admin */
+@keyframes adminPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 204, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+    }
+}
+
+.admin-access a {
+    animation: adminPulse 2s infinite;
+}

@@ -1,0 +1,594 @@
+/* ===================== RESET & BASE ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-image: url('imagee/back.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ===================== HEADER ===================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 3px solid #ffcc00;
+}
+
+.logo {
+    height: 55px;
+    border-radius: 5px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.navbar a:hover,
+.navbar .active {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+}
+
+#btnDeconnexion {
+    color: #ff6b6b;
+}
+
+#btnDeconnexion:hover {
+    color: #ff4444;
+}
+
+/* ===================== CONTENEUR PRINCIPAL ===================== */
+.compte-container {
+    max-width: 1400px;
+    margin: 100px auto 50px;
+    padding: 0 20px;
+}
+
+/* ===================== BANNIÈRE PERSONNELLE ===================== */
+.banner-personnelle {
+    background: linear-gradient(135deg, #ffcc00, #ffaa00);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    color: #000;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.photo-profil {
+    position: relative;
+}
+
+.photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #000;
+    object-fit: cover;
+}
+
+.btn-change-photo {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #000;
+    color: #ffcc00;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.info-principale h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.info-principale p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: #000;
+    color: #ffcc00;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ===================== GRID DU COMPTE ===================== */
+.compte-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.compte-colonne {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ===================== CARTES DU COMPTE ===================== */
+.carte-compte {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte-compte:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.carte-compte h3 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    color: #000;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+}
+
+/* ===================== INFORMATIONS PERSONNELLES ===================== */
+.info-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item label {
+    font-weight: 600;
+    color: #333;
+}
+
+.info-item span {
+    color: #000;
+    font-weight: 500;
+}
+
+/* ===================== MESURES PHYSIQUES ===================== */
+.mesures-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.mesure-item {
+    text-align: center;
+    background: rgba(255, 204, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.mesure-item label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.mesure-item span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000;
+}
+
+/* ===================== CARTE IMC ===================== */
+.imc-carte {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.imc-carte h3 {
+    color: white;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.imc-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.imc-valeur {
+    text-align: center;
+}
+
+.imc-valeur span:first-child {
+    font-size: 3rem;
+    font-weight: 900;
+    display: block;
+    color: white;
+}
+
+.imc-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.imc-categorie {
+    background: white;
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.imc-interpretation, .imc-conseils {
+    margin-bottom: 15px;
+}
+
+.imc-interpretation h4, .imc-conseils h4 {
+    margin-bottom: 8px;
+    color: white;
+}
+
+.imc-interpretation p, .imc-conseils p {
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* ===================== HISTORIQUE IMC ===================== */
+.historique-imc {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.aucune-donnee {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* ===================== PROGRAMMES ===================== */
+.programme-carte {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.programme-carte h3 {
+    color: white;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.programme-header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.calories-jour, .duree-entrainement, .frequence-entrainement {
+    text-align: center;
+}
+
+.calories-jour span:first-child,
+.duree-entrainement span:first-child,
+.frequence-entrainement span:first-child {
+    font-size: 2rem;
+    font-weight: 900;
+    display: block;
+}
+
+.programme-content {
+    margin-bottom: 20px;
+}
+
+.repas-section, .entrainement-section {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.repas-section h4, .entrainement-section h4 {
+    margin-bottom: 8px;
+    color: white;
+}
+
+.repas-section p, .entrainement-section p {
+    opacity: 0.9;
+    line-height: 1.4;
+    font-size: 0.9rem;
+    white-space: pre-line;
+}
+
+/* ===================== BOUTONS ===================== */
+.btn-modifier, .btn-calculer, .btn-telecharger, .btn-abonnement {
+    width: 100%;
+    background: white;
+    color: #000;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-modifier:hover, .btn-calculer:hover, .btn-telecharger:hover, .btn-abonnement:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* ===================== SECTION ABONNEMENT ===================== */
+.section-abonnement {
+    margin-top: 20px;
+}
+
+.abonnement-carte {
+    background: linear-gradient(135deg, #ffa726, #ffb74d);
+    color: white;
+}
+
+.abonnement-carte h3 {
+    color: white;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.abonnement-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.abonnement-details {
+    flex: 1;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.detail-item label {
+    font-weight: 600;
+}
+
+.abonnement-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-abonnement {
+    width: auto;
+    padding: 10px 15px;
+    margin-top: 0;
+}
+
+/* ===================== MODALS ===================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-contenu {
+    background: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    color: #000;
+    position: relative;
+}
+
+.fermer {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+}
+
+.fermer:hover {
+    color: #ff4444;
+}
+
+.form-groupe {
+    margin-bottom: 15px;
+}
+
+.form-groupe label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-groupe input,
+.form-groupe select,
+.form-groupe textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-groupe input:focus,
+.form-groupe select:focus,
+.form-groupe textarea:focus {
+    outline: none;
+    border-color: #ffcc00;
+}
+
+.form-ligne {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.actions-modal {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-sauvegarder {
+    flex: 1;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-annuler {
+    flex: 1;
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-sauvegarder:hover {
+    background: #45a049;
+}
+
+.btn-annuler:hover {
+    background: #da190b;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1200px) {
+    .compte-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .navbar a {
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    .compte-container {
+        margin: 120px auto 30px;
+    }
+
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .compte-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mesures-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .imc-display {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .abonnement-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-ligne {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .badges {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .banner-personnelle {
+        padding: 25px 15px;
+    }
+
+    .info-principale h1 {
+        font-size: 2rem;
+    }
+
+    .modal-contenu {
+        margin: 10% auto;
+        padding: 20px;
+    }
+}

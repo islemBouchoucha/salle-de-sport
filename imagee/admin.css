@@ -1,0 +1,255 @@
+/* Réinitialisation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-image: url('imagee/back.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo {
+    height: 55px;
+    border-radius: 5px;
+}
+
+/* NAVIGATION */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.navbar a:hover,
+.navbar .active {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+}
+
+/* CONTENU PRINCIPAL */
+.home {
+    text-align: left;
+    padding-top: 180px;
+    padding-left: 50px;
+    max-width: 600px;
+}
+
+.home h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.home h1 span {
+    color: #ffcc00;
+}
+
+/* SECTION ADMIN */
+.admin-section {
+    padding: 60px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-section h2 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    color: #ffcc00;
+    font-weight: 700;
+    text-align: center;
+}
+
+.admin-section h3 {
+    font-size: 28px;
+    margin: 40px 0 20px 0;
+    color: #ffcc00;
+    font-weight: 600;
+}
+
+/* STATISTIQUES */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: rgba(255, 204, 0, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.stat-icon {
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-info h3 {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* LISTE DES MEMBRES */
+.members-list,
+.history-list {
+    background: rgba(255, 204, 0, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.member-item,
+.history-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+    color: #000;
+}
+
+.member-item:last-child,
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.member-name,
+.history-date {
+    font-weight: 700;
+}
+
+.member-time,
+.history-count {
+    text-align: center;
+}
+
+.member-activity,
+.history-revenue {
+    text-align: right;
+    font-weight: 600;
+}
+
+/* FILTRES */
+.history-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: rgba(255, 204, 0, 0.7);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #000;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 204, 0, 0.9);
+}
+
+.filter-btn.active {
+    background: #000;
+    color: #ffcc00;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .navbar a {
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    .home {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 150px;
+    }
+
+    .home h1 {
+        font-size: 38px;
+    }
+
+    .admin-section {
+        padding: 40px 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-item,
+    .history-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .member-time,
+    .member-activity,
+    .history-count,
+    .history-revenue {
+        text-align: center;
+    }
+}

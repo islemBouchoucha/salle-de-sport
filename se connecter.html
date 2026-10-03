@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <title>Formulaire d'inscription</title>
+    <link rel="stylesheet" href="se connecter.css">
+</head>
+<body>
+    <header class="header">
+        <img src="imagee/logo.jpg" class="logo" />
+        <nav class="navbar">
+            <a href="proj.html" class="active">Accueil</a>
+            <a href="deepseek_html_20251115_31774d.html">Activités</a>
+            <a href="planning.html">Planning</a>
+            <a href="inscrit.html">Se connecter</a>
+        </nav>
+    </header>
+    <form action="inscription.php" method="POST" id="inscriptionForm">
+    <h2>INSCRIPTION</h2>
+    <hr>
+    <div class="name-filed">
+        <div>
+            <label>NOM</label>
+            <input type="text" name="nom" id="nom" required>
+        </div>
+        <div>
+            <label>PRENOM</label>
+            <input type="text" name="prenom" id="prenom" required>
+        </div>
+        <div>
+            <label>AGE</label>
+            <input type="number" name="age" id="age" min="15" max="100" required>
+        </div>
+        <div>
+            <label>SEXE</label>
+            <select name="sexe" id="sexe" required>
+                <option value="">Choisir</option>
+                <option value="homme">Homme</option>
+                <option value="femme">Femme</option>
+            </select>
+        </div>
+        <div>
+            <label>TAILLE (m)</label>
+            <input type="number" name="taille" id="taille" step="0.01" min="1.00" max="2.50" required>
+        </div>
+        <div>
+            <label>POIDS (kg)</label>
+            <input type="number" name="poids" id="poids" step="0.1" min="30" max="300" required>
+        </div>
+    </div>
+    <label>ADRESSE MAIL</label>
+    <input type="email" name="email" id="email" required>
+    <label>MOT DE PASSE</label>
+    <input type="password" name="password" id="password" required>
+    
+    <!-- Section paiement... -->
+    
+    <input type="submit" value="Confirmer l'inscription">
+</form>
+        
+        <!-- SECTION PAIEMENT -->
+        <div class="payment-section">
+            <h3>INFORMATIONS DE PAIEMENT</h3>
+            
+            <div class="card-types">
+                <div class="card-type active" data-type="visa">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE1LjI0MjIgMTYuMDI0N0gxMi43MzM2TDE0LjQ4ODggNy45NzUwN0gxNi45OTc0TDE1LjI0MjIgMTYuMDI0N1oiIGZpbGw9IiMxQjcyQzQiLz4KPHBhdGggZD0iTTI2LjY0MjUgOC4wNjE3NkMyNi4wMzk2IDcuODMxNzYgMjUuMTUyMiA3LjcxNjcgMjQuMDc3MiA3LjcxNjdDMjAuODc5NyA3LjcxNjcgMTguNTk3MiA5LjE3MTcgMTguNTc5NyAxMS40MTIyQzE4LjU1NDcgMTIuODQ5NyAxOS45MDk3IDEzLjY0OTcgMjEuMjU5NyAxNC4xMDk3QzIyLjY0OTcgMTQuNTgyMiAyMy4xMjQ3IDE0Ljk1OTcgMjMuMTE5NyAxNS40NDk3QzIzLjEwOTcgMTYuMTk5NyAyMi4xODk3IDE2LjU0OTcgMjEuMzE5NyAxNi41NDk3QzIwLjA4OTcgMTYuNTQ5NyAxOS4zODk3IDE2LjM3NDcgMTguMzQ5NyAxNS45OTcyTDE3Ljk3NDcgMTUuODQ3MkwxNy41NTk3IDE3LjY5OTdDMTguMTk5NyAxOC4wMDk3IDE5LjU1OTcgMTguMjQ0NyAyMC45NTk3IDE4LjI0NDdDMjQuMzU5NyAxOC4yNDQ3IDI2LjYyNDcgMTYuNzk0NyAyNi42NDk3IDE0LjM0OTdDMjYuNjY5NyAxMy4wNzQ3IDI1LjcyNDcgMTIuMTk5NyAyMy45ODk3IDExLjQ5OTdDMjIuNzQ5NyAxMC45OTk3IDIyLjA0OTcgMTAuNjQ5NyAyMi4wNzQ3IDkuOTk5NzJDMjIuMDc0NyA5LjQ0OTcyIDIyLjY4OTcgOC44OTk3MiAyMy45ODk3IDguODk5NzJDMjQuOTU5NyA4Ljg4NDcyIDI1LjcyOTcgOS4wODQ3MiAyNi4yNDk3IDkuMzA0NzJMMjYuNjQyNSA4LjA2MTc2WiIgZmlsbD0iIzFCNzJDNCIvPgo8cGF0aCBkPSJNMzEuMjUgNy45NzUwN0gyOC45MTI1QzI4LjQyIDcuOTc1MDcgMjguMDMgOC4yODAwNyAyNy44ODUgOC43NDAwN0wyNC43NSA4LjAwMDA3TDI0LjY5NzUgNy45NzUwN0gyMS4xMjVDMjEuMDY1IDcuOTc1MDcgMjAuNzM1IDguMDY1MDcgMjAuNTcgOC4zODAwN0wxNi45OTc1IDE2LjAyNDdIMTkuNTA2MkMxOS41MDYyIDE2LjAyNDcgMTkuODgzNyAxNC45OTk3IDE5Ljk1NjIgMTQuODI0N0wyMS43MjUgMTYuMDI0N0gyNC40MDYyQzI0LjU4NjIgMTUuNTk5NyAyNS43NTYyIDEyLjU0OTcgMjUuODU2MiAxMi4yOTk3QzI1Ljk1NjIgMTIuMDQ5NyAyNi4wMzYyIDExLjk5OTcgMjYuMjgxMiAxMS45OTk3QzI2LjQ3NjIgMTEuOTk5NyAyNi45MzYyIDEyLjAwNDcgMjcuNDMxMiAxMi4wMDQ3QzI3LjY3NjIgMTIuMDA0NyAyNy44MDYyIDExLjk5OTcgMjcuOTU2MiAxMS45OTk3QzI3Ljg4NjIgMTIuMjI0NyAyNy42ODEyIDEyLjc5OTcgMjcuNTgxMiAxMy4wNDk3TDI2LjU4MTIgMTUuOTk5N0wyOC4xMDYyIDE2LjAyNDdMMzEuMjUgNy45NzUwN1pNMjYuODgxMiAxMC43OTk3QzI2Ljg4MTIgMTAuNzk5NyAyNy4yODEyIDkuNTI0NzIgMjcuNDMxMiA5LjAyNDcyTDI3LjY1NjIgMTAuMDI0N0MyNy42NTYyIDEwLjAyNDcgMjcuMDgxMiAxMi4xOTk3IDI2Ljk1NjIgMTIuNTQ5N0gyNS4zMDYyQzI1LjMwNjIgMTIuNTQ5NyAyNS45MzEyIDEwLjA5OTcgMjUuOTgxMiA5Ljg3NDcyQzI2LjAzMTIgOS42NDk3MiAyNi4xMzEyIDkuMzc0NzIgMjYuMTMxMiA5LjM3NDcyQzI2LjEzMTIgOS4zNzQ3MiAyNi4yODEyIDkuODk5NzIgMjYuNDMxMiAxMC4zOTk3TDI2Ljg4MTIgMTAuNzk5N1oiIGZpbGw9IiMxQjcyQzQiLz4KPHBhdGggZD0iTTkuMzc1IDcuOTc1MDdINi4wNjI1QzUuODEyNSA3Ljk3NTA3IDUuNTg3NSA4LjA4MDA3IDUuNDUgOC4zMDUwN0wyLjA2MjUgMTYuMDI0N0g0LjU2MjVDNC41NjI1IDE2LjAyNDcgNC44NzUgMTQuODk5NyA0LjkzNzUgMTQuNzQ5N0w1LjgxMjUgMTEuOTk5N0M1Ljg3NSAxMS44NDk3IDYuMTI1IDExLjA5OTcgNi4xODc1IDEwLjk0OTdDNi4yNSAxMC43OTk3IDYuMzEyNSAxMC42NDk3IDYuMzc1IDEwLjQ5OTdDNi40Mzc1IDEwLjM0OTcgNi41IDEwLjE5OTcgNi41NjI1IDEwLjA0OTdDNi42MjUgOS44OTk3MiA2LjY4NzUgOS43NDk3MiA2Ljc1IDkuNTk5NzJDNi44MTI1IDkuNDQ5NzIgNi44NzUgOS4yOTk3MiA2LjkzNzUgOS4xNDk3MkM3IDguOTk5NzIgNy4wNjI1IDguODQ5NzIgNy4xMjUgOC42OTk3MkM3LjE4NzUgOC41NDk3MiA3LjI1IDguMzk5NzIgNy4zMTI1IDguMjQ5NzJDNy4zNzUgOC4wOTk3MiA3LjQzNzUgNy45NDk3MiA3LjUgNy43OTk3MkM3LjU2MjUgNy42NDk3MiA3LjYyNSA3LjQ5OTcyIDcuNjg3NSA3LjM0OTcyQzcuNzUgNy4xOTk3MiA3LjgxMjUgNy4wNDk3MiA3Ljg3NSA2Ljg5OTcyQzcuOTM3NSA2Ljc0OTcyIDggNi41OTk3MiA4LjA2MjUgNi40NDk3MkM4LjEyNSA2LjI5OTcyIDguMTg3NSA2LjE0OTcyIDguMjUgNS45OTk3MkM4LjMxMjUgNS44NDk3MiA4LjM3NSA1LjY5OTcyIDguNDM3NSA1LjU0OTcyQzguNSA1LjM5OTcyIDguNTYyNSA1LjI0OTcyIDguNjI1IDUuMDk5NzJDOC42ODc1IDQuOTQ5NzIgOC43NSA0Ljc5OTcyIDguODEyNSA0LjY0OTcyQzguODc1IDQuNDk5NzIgOC45Mzc1IDQuMzQ5NzIgOSA0LjE5OTcyQzkuMDYyNSA0LjA0OTcyIDkuMTI1IDMuODk5NzIgOS4xODc1IDMuNzQ5NzJDOS4yNSAzLjU5OTcyIDkuMzEyNSAzLjQ0OTcyIDkuMzc1IDMuMjk5NzJIOS4zNzVWNy45NzUwN1oiIGZpbGw9IiMxQjcyQzQiLz4KPC9zdmc+" alt="Visa">
+                </div>
+                <div class="card-type" data-type="mastercard">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE1LjI1IDQuNUgyNC43NVYxOS41SDE1LjI1VjQuNVoiIGZpbGw9IiNGRjZFMDAiLz4KPHBhdGggZD0iTTE1Ljg3NSA0LjVDMTcuODc1IDYuMDYyNSAyMCA4LjUgMjAgMTJDMjAgMTUuNSAxNy44NzUgMTcuOTM3NSAxNS44NzUgMTkuNUMyMC4xMjUgMTcuNDM3NSAyMy43NSAxMy4zMTI1IDIzLjc1IDhDMjMuNzUgMi42ODc1IDIwLjEyNSAtMS40Mzc1IDE1Ljg3NSAtMy41QzEzLjg3NSAtMS45Mzc1IDExLjc1IDAuNSAxMS43NSA0QzExLjc1IDcuNSAxMy44NzUgOS45Mzc1IDE1Ljg3NSA0LjVaIiBmaWxsPSIjRUQwMDI3Ii8+CjxwYXRoIGQ9Ik0xNS44NzUgMTkuNUMxMy44NzUgMTcuOTM3NSAxMS43NSAxNS41IDExLjc1IDEyQzExLjc1IDguNSAxMy44NzUgNi4wNjI1IDE1Ljg3NSA0LjVDMTMuODc1IDYuMDYyNSAxMS43NSA4LjUgMTEuNzUgMTJDMTEuNzUgMTUuNSAxMy44NzUgMTcuOTM3NSAxNS44NzUgMTkuNVoiIGZpbGw9IiM5RDAwNzUiLz4KPC9zdmc+" alt="Mastercard">
+                </div>
+            </div>
+
+            <div class="card-form">
+                <div class="form-group">
+                    <label>Numéro de carte</label>
+                    <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" class="card-number">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date d'expiration</label>
+                        <input type="text" placeholder="MM/AA" maxlength="5" class="card-expiry">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" placeholder="123" maxlength="3" class="card-cvv">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Titulaire de la carte</label>
+                    <input type="text" placeholder="JEAN DUPONT" class="card-holder">
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" value="Confirmer l'inscription">
+    </form>
+
+    <!-- SCRIPT CORRIGÉ POUR LES CARTES BANCAIRES -->
+    <script>
+    // Gestion des types de cartes
+    document.querySelectorAll('.card-type').forEach(type => {
+        type.addEventListener('click', function() {
+            document.querySelectorAll('.card-type').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Formatage des champs de carte
+    document.querySelector('.card-number').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+        let formatted = '';
+        for (let i = 0; i < value.length; i++) {
+            if (i > 0 && i % 4 === 0) formatted += ' ';
+            formatted += value[i];
+        }
+        e.target.value = formatted.substring(0, 19);
+    });
+
+    document.querySelector('.card-expiry').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length >= 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2, 4);
+        }
+        e.target.value = value.substring(0, 5);
+    });
+
+    document.querySelector('.card-cvv').addEventListener('input', function(e) {
+        e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
+    });
+
+    document.querySelector('.card-holder').addEventListener('input', function(e) {
+        e.target.value = e.target.value.toUpperCase();
+    });
+
+    // GESTION DU FORMULAIRE D'INSCRIPTION
+    document.getElementById('inscriptionForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Récupération des données
+        const nom = document.getElementById('nom').value;
+        const prenom = document.getElementById('prenom').value;
+        const age = parseInt(document.getElementById('age').value);
+        const sexe = document.getElementById('sexe').value;
+        const taille = parseFloat(document.getElementById('taille').value);
+        const poids = parseFloat(document.getElementById('poids').value);
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        
+        // Validation
+        if (!nom || !prenom || !age || !sexe || !taille || !poids || !email || !password) {
+            alert('Veuillez remplir tous les champs obligatoires');
+            return;
+        }
+
+        // Vérifier si l'email existe déjà
+        if (GYMDB.getMembreParEmail(email)) {
+            alert('Un compte avec cet email existe déjà');
+            return;
+        }
+        
+        // CALCUL IMC
+        const imc = calculerIMC(poids, taille);
+        const categorie = determinerCategorieIMC(imc);
+        
+        // CRÉATION DU MEMBRE DANS LA BASE DE DONNÉES
+        const nouveauMembre = GYMDB.ajouterMembre({
+            nom,
+            prenom,
+            age,
+            sexe,
+            taille,
+            poids,
+            imc: imc.toFixed(2),
+            categorie_imc: categorie.texte,
+            email,
+            password: btoa(password), // Chiffrement basique
+            telephone: '',
+            adresse: '',
+            objectif: 'forme'
+        });
+
+        // CRÉATION DE L'ABONNEMENT
+        const abonnement = GYMDB.ajouterAbonnement({
+            membre_id: nouveauMembre.id,
+            type: 'decouverte',
+            prix: 29,
+            duree: 30, // jours
+            date_fin: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
+        });
+
+        // ENREGISTREMENT DU PAIEMENT
+        const paiement = GYMDB.enregistrerPaiement({
+            membre_id: nouveauMembre.id,
+            abonnement_id: abonnement.id,
+            montant: 29,
+            methode: 'carte',
+            statut: 'completé'
+        });
+
+        // SAUVEGARDE IMC
+        GYMDB.sauvegarderIMC({
+            membre_id: nouveauMembre.id,
+            imc: imc,
+            poids: poids,
+            taille: taille,
+            categorie: categorie.texte
+        });
+
+        // CONNEXION AUTOMATIQUE ET REDIRECTION
+        localStorage.setItem('userLoggedIn', 'true');
+        localStorage.setItem('currentUser', JSON.stringify(nouveauMembre));
+        
+        // REDIRECTION VERS LA PAGE COMPTE
+        alert('✅ Inscription réussie ! Redirection vers votre compte...');
+        window.location.href = 'compte.html';
+    });
+    
+    // FONCTION DE CALCUL IMC
+    function calculerIMC(poids, taille) {
+        return poids / (taille * taille);
+    }
+    
+    // FONCTION DE DÉTERMINATION DE CATÉGORIE IMC
+    function determinerCategorieIMC(imc) {
+        if (imc < 18.5) {
+            return { texte: 'Sous-poids', couleur: '#ffcc00' };
+        } else if (imc >= 18.5 && imc <= 24.9) {
+            return { texte: 'Poids normal', couleur: '#4CAF50' };
+        } else if (imc >= 25 && imc <= 29.9) {
+            return { texte: 'Surpoids', couleur: '#FF9800' };
+        } else {
+            return { texte: 'Obésité', couleur: '#F44336' };
+        }
+    }
+
+    // CALCUL AUTOMATIQUE QUAND LA TAILLE OU LE POIDS CHANGE
+    document.getElementById('taille').addEventListener('input', calculerIMCAuto);
+    document.getElementById('poids').addEventListener('input', calculerIMCAuto);
+    
+    function calculerIMCAuto() {
+        const taille = parseFloat(document.getElementById('taille').value);
+        const poids = parseFloat(document.getElementById('poids').value);
+        
+        if (taille && poids && taille > 1 && poids > 30) {
+            const imc = calculerIMC(poids, taille);
+            const categorie = determinerCategorieIMC(imc);
+            
+            // Afficher un aperçu
+            const apercu = document.getElementById('apercuIMC') || document.createElement('div');
+            apercu.id = 'apercuIMC';
+            apercu.innerHTML = `
+                <div style="background: ${categorie.couleur}; color: white; padding: 10px; border-radius: 5px; margin: 10px 0; text-align: center;">
+                    <strong>IMC estimé: ${imc.toFixed(2)}</strong> - ${categorie.texte}
+                </div>
+            `;
+            
+            const formulaire = document.getElementById('inscriptionForm');
+            if (!document.getElementById('apercuIMC')) {
+                formulaire.insertBefore(apercu, document.querySelector('.payment-section'));
+            } else {
+                document.getElementById('apercuIMC').innerHTML = apercu.innerHTML;
+            }
+        }
+    }
+</script>
+</body>
+</html>

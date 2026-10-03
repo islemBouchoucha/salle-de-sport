@@ -1,0 +1,339 @@
+/* Réinitialisation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-image: url('imagee/back.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo {
+    height: 55px;
+    border-radius: 5px;
+}
+
+/* NAVIGATION */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.navbar a:hover,
+.navbar .active {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+}
+
+/* CONTENU PRINCIPAL */
+.home {
+    text-align: left;
+    padding-top: 180px;
+    padding-left: 50px;
+    max-width: 800px;
+}
+
+.home h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.home h1 span {
+    color: #ffcc00;
+}
+
+/* SECTION ACTIVITÉS */
+.activities-section {
+    padding: 60px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.activities-section h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+    font-weight: 700;
+    text-align: center;
+}
+
+.section-description {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.activity-card {
+    background: rgba(255, 204, 0, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.activity-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.activity-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-icon svg {
+    width: 35px;
+    height: 35px;
+    fill: #000;
+}
+
+.activity-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #000;
+    font-weight: 700;
+}
+
+.activity-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.activity-tags {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(0, 0, 0, 0.2);
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* SECTION PLANNING */
+.planning-section {
+    padding: 60px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.planning-section h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+    font-weight: 700;
+    text-align: center;
+}
+
+.planning-container {
+    background: rgba(255, 204, 0, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #000;
+}
+
+.days-navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.day-btn {
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #000;
+}
+
+.day-btn:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.day-btn.active {
+    background: #000;
+    color: #ffcc00;
+}
+
+.schedule-content {
+    min-height: 400px;
+}
+
+.day-schedule {
+    display: none;
+}
+
+.day-schedule.active {
+    display: block;
+}
+
+.time-slot {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.time-slot:last-child {
+    border-bottom: none;
+}
+
+.time {
+    font-weight: 700;
+    color: #000;
+}
+
+.activity {
+    font-weight: 600;
+    color: #000;
+}
+
+.coach {
+    color: #333;
+}
+
+.level {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.planning-notes {
+    margin-top: 30px;
+    text-align: center;
+    font-style: italic;
+    color: #fff;
+}
+
+.planning-notes p {
+    font-size: 16px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .navbar a {
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    .home {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 150px;
+    }
+
+    .home h1 {
+        font-size: 38px;
+    }
+
+    .activities-section,
+    .planning-section {
+        padding: 40px 20px;
+    }
+
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .time-slot {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .days-navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .day-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home h1 {
+        font-size: 32px;
+    }
+
+    .activities-section h2,
+    .planning-section h2 {
+        font-size: 32px;
+    }
+
+    .activity-card {
+        padding: 20px;
+    }
+}

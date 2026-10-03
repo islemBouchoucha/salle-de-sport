@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <title>Tarifs - GYM CENTER</title>
+
+    <!-- Lien vers le fichier CSS séparé -->
+    <link rel="stylesheet" href="tarif.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <img src="imagee/logo.jpg" class="logo" />
+        <nav class="navbar">
+            <a href="proj.html">Accueil</a>
+            <a href="deepseek_html_20251115_31774d.html">Activités</a>
+            <a href="planning.html">Planning</a>
+            <a href="inscrit.html">Se connecter</a>
+        </nav>
+    </header>
+
+    <!-- CONTENU principal -->
+    <section class="home">
+        <h1>Nos <span>Tarifs</span></h1>
+    </section>
+
+    <!-- SECTION TARIFS -->
+    <div class="pricing-section">
+        <h2>CHOISISSEZ VOTRE FORMULE</h2>
+        <p class="section-description">Des offres adaptées à tous les besoins et tous les budgets</p>
+
+        <div class="pricing-grid">
+            <!-- FORMULE DÉCOUVERTE -->
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3>DÉCOUVERTE</h3>
+                    <div class="price">29€<span>/mois</span></div>
+                </div>
+                <div class="card-features">
+                    <div class="feature">✓ Accès illimité 7j/7</div>
+                    <div class="feature">✓ Tous les équipements</div>
+                    <div class="feature">✓ Espace cardio</div>
+                    <div class="feature">✓ Espace musculation</div>
+                    <div class="feature">✗ Cours collectifs</div>
+                    <div class="feature">✗ Coaching personnel</div>
+                </div>
+                <button class="pricing-btn">Choisir cette offre</button>
+            </div>
+
+            <!-- FORMULE FITNESS -->
+            <div class="pricing-card featured">
+                <div class="popular-badge">POPULAIRE</div>
+                <div class="card-header">
+                    <h3>FITNESS</h3>
+                    <div class="price">49€<span>/mois</span></div>
+                </div>
+                <div class="card-features">
+                    <div class="feature">✓ Accès illimité 7j/7</div>
+                    <div class="feature">✓ Tous les équipements</div>
+                    <div class="feature">✓ Espace cardio</div>
+                    <div class="feature">✓ Espace musculation</div>
+                    <div class="feature">✓ Cours collectifs illimités</div>
+                    <div class="feature">✗ Coaching personnel</div>
+                </div>
+                <button class="pricing-btn featured-btn">Choisir cette offre</button>
+            </div>
+
+            <!-- FORMULE PREMIUM -->
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3>PREMIUM</h3>
+                    <div class="price">79€<span>/mois</span></div>
+                </div>
+                <div class="card-features">
+                    <div class="feature">✓ Accès illimité 7j/7</div>
+                    <div class="feature">✓ Tous les équipements</div>
+                    <div class="feature">✓ Espace cardio</div>
+                    <div class="feature">✓ Espace musculation</div>
+                    <div class="feature">✓ Cours collectifs illimités</div>
+                    <div class="feature">✓ 2 séances coaching/mois</div>
+                </div>
+                <button class="pricing-btn">Choisir cette offre</button>
+            </div>
+        </div>
+
+        <!-- OPTIONS SUPPLÉMENTAIRES -->
+        <div class="addons-section">
+            <h3>OPTIONS SUPPLÉMENTAIRES</h3>
+            <div class="addons-grid">
+                <div class="addon-card">
+                    <h4>Coaching Personnel</h4>
+                    <p>10 séances/mois</p>
+                    <div class="addon-price">+150€</div>
+                </div>
+                <div class="addon-card">
+                    <h4>Nutrition</h4>
+                    <p>Bilan personnalisé</p>
+                    <div class="addon-price">+50€</div>
+                </div>
+                <div class="addon-card">
+                    <h4>Massage Sportif</h4>
+                    <p>1 séance/mois</p>
+                    <div class="addon-price">+30€</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GARANTIE SATISFACTION -->
+        <div class="guarantee-section">
+            <div class="guarantee-card">
+                <h3>✅ GARANTIE SATISFACTION 30 JOURS</h3>
+                <p>Si vous n'êtes pas satisfait, nous vous remboursons intégralement votre premier mois</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sélection des offres
+        document.querySelectorAll('.pricing-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.pricing-card');
+                const planName = card.querySelector('h3').textContent;
+                const price = card.querySelector('.price').textContent;
+                
+                alert(`Vous avez choisi la formule ${planName} au prix de ${price}. Vous serez redirigé vers la page d'inscription.`);
+                window.location.href = 'inscrit.html';
+            });
+        });
+
+        // Animation des cartes
+        document.querySelectorAll('.pricing-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
